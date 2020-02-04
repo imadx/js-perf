@@ -1,5 +1,5 @@
 # js-perf
-A minimal online benchmark tool to compare JS scripts online
+A minimal online benchmark tool to compare JS scripts online  
 https://js-perf.firebaseapp.com/
 
 ### TODO
@@ -10,3 +10,4 @@ https://js-perf.firebaseapp.com/
 - Add functionality to change the number of iterations
 - Add a sophisticated code editor (Ace like)
 - Add support for multiple simultaneous benchmarks
+- Add support for Memory/CPU usage benchmarks
