@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		app.$set({ status: 'Calculating execution times...' });
 		// Show the output on the benchmark-stats
+		const executionStats = document.getElementById('benchmark-stats');
 		const executionTime1 = endTimes[0] - startTimes[0];
 		const executionTime2 = endTimes[1] - startTimes[1];
 
@@ -54,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		app.$set({ time2: executionTime2 });
 		app.$set({
 			status: 'Benchmark run complete. Click on `Run Benchmark` to run again'
+		});
+
+		requestAnimationFrame(() => {
+			executionStats.scrollIntoView({ behavior: 'smooth' });
 		});
 	};
 

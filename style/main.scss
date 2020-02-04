@@ -162,7 +162,7 @@ h3 {
           display: block;
           height: 2px;
           width: var(--inner-width);
-          margin-left: calc(100px - var(--inner-width));
+          transform: translateX(calc(100px - var(--inner-width)));
           margin-right: 8px;
           background-color: $color-success;
         }
