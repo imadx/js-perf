@@ -13,3 +13,4 @@ https://js-perf.firebaseapp.com/
 - Add support for Memory/CPU usage benchmarks
 - Collect benchmark-run count
 - Show the app version on the UI
+- Save last session on localStorage
