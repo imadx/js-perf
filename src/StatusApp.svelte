@@ -7,7 +7,7 @@
   export let time2 = 0;
 
   $: isFirstFaster = time1 <= time2;
-  $: firstRatio = time1 / time2;
+  $: firstRatio = time2 / time1;
 </script>
 
 <h3>
