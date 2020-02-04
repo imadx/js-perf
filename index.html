@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>JS Performance Benchmark</title>
+
+		<!-- update the version number as needed -->
+		<script
+			defer
+			src="https://js-perf.firebaseapp.com/__/firebase/7.8.0/firebase-app.js"
+		></script>
+		<!-- include only the Firebase features as you need -->
+		<script
+			defer
+			src="https://js-perf.firebaseapp.com/__/firebase/7.8.0/firebase-analytics.js"
+		></script>
+		<!-- initialize the SDK after all desired features are loaded -->
+		<script
+			defer
+			src="https://js-perf.firebaseapp.com/__/firebase/init.js"
+		></script>
+	</head>
+	<body>
+		<div class="header">
+			<h1>JS Performance Benchmark</h1>
+		</div>
+		<div class="content">
+			<div class="benchmark-script">
+				<label>
+					<div>
+						Setup script
+					</div>
+					<textarea id="benchmark-setup" cols="30" rows="10"></textarea>
+				</label>
+			</div>
+			<div class="benchmark-script">
+				<label>
+					<div>
+						Script 1
+					</div>
+					<textarea id="benchmark-script-1" cols="30" rows="10"></textarea>
+				</label>
+			</div>
+			<div class="benchmark-script">
+				<label>
+					<div>
+						Script 2
+					</div>
+					<textarea id="benchmark-script-2" cols="30" rows="10"></textarea>
+				</label>
+			</div>
+			<div class="benchmark-actions">
+				<button id="benchmark-run">Run</button>
+			</div>
+			<div id="benchmark-stats" class="benchmark-stats"></div>
+		</div>
+		<div class="footer">
+			by <a href="http://www.imadhusanka.me/">Ishan Madhusanka</a>
+		</div>
+		<script src="src/main.js"></script>
+	</body>
+</html>
