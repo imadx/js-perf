@@ -1,5 +1,6 @@
 # js-perf
 A minimal online benchmark tool to compare JS scripts online
+https://js-perf.firebaseapp.com/
 
 ### TODO
 - Integrate Github actions to push to firebase
