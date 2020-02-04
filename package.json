@@ -1,0 +1,16 @@
+{
+  "name": "js-perf",
+  "version": "1.0.0",
+  "description": "A minimal online benchmark tool to compare JS scripts online",
+  "main": "index.html",
+  "repository": "https://github.com/imadx/js-perf.git",
+  "author": "ahtimadhusanka@gmail.com",
+  "license": "GPL-3.0-only",
+  "private": false,
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "rimraf dist; parcel build index.html",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {}
+}
