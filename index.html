@@ -21,43 +21,82 @@
 			defer
 			src="https://js-perf.firebaseapp.com/__/firebase/init.js"
 		></script>
+		<link rel="stylesheet" href="style/main.scss" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:400&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<div class="header">
-			<h1>JS Performance Benchmark</h1>
+			<div class="content">
+				<img src="./img/logo.svg" alt="JS Perf Logo" class="logo" />
+				<h1>
+					JS Perf
+					<span
+						>A minimal online benchmark tool to compare JS snippets online</span
+					>
+				</h1>
+			</div>
 		</div>
-		<div class="content">
-			<div class="benchmark-script">
-				<label>
-					<div>
-						Setup script
+		<div class="body">
+			<div class="content">
+				<div class="benchmark-script">
+					<label>
+						<h3 class="mt-0">
+							Initializations
+							<span
+								>This block will be run once, before the iterations start</span
+							>
+						</h3>
+						<textarea id="benchmark-setup" cols="30" rows="5"></textarea>
+					</label>
+				</div>
+				<div class="columns">
+					<div class="benchmark-script">
+						<label>
+							<h3>
+								Benchmark script 1
+								<span>Iterated 1000 times</span>
+							</h3>
+							<textarea id="benchmark-script-1" cols="30" rows="10"></textarea>
+						</label>
 					</div>
-					<textarea id="benchmark-setup" cols="30" rows="10"></textarea>
-				</label>
-			</div>
-			<div class="benchmark-script">
-				<label>
-					<div>
-						Script 1
+					<div class="benchmark-script">
+						<label>
+							<h3>
+								Benchmark script 2
+								<span>Iterated 1000 times</span>
+							</h3>
+							<textarea id="benchmark-script-2" cols="30" rows="10"></textarea>
+						</label>
 					</div>
-					<textarea id="benchmark-script-1" cols="30" rows="10"></textarea>
-				</label>
+				</div>
+				<div class="benchmark-actions">
+					<button id="benchmark-run" class="btn">Run benchmark</button>
+				</div>
 			</div>
-			<div class="benchmark-script">
-				<label>
-					<div>
-						Script 2
-					</div>
-					<textarea id="benchmark-script-2" cols="30" rows="10"></textarea>
-				</label>
+		</div>
+		<div class="console">
+			<div class="content">
+				<div id="benchmark-stats" class="benchmark-stats"></div>
 			</div>
-			<div class="benchmark-actions">
-				<button id="benchmark-run">Run</button>
-			</div>
-			<div id="benchmark-stats" class="benchmark-stats"></div>
 		</div>
 		<div class="footer">
-			by <a href="http://www.imadhusanka.me/">Ishan Madhusanka</a>
+			<div class="content">
+				<img
+					src="https://github.com/imadx.png?size=64"
+					alt="Github profile image of imadx"
+					class="profile"
+				/>
+				<div>
+					Maintained by
+					<a href="http://www.imadhusanka.me/">Ishan Madhusanka</a>
+					<br />
+					Report any Issues or Feature requests on
+					<a href="https://github.com/imadx/js-perf">Github</a>
+				</div>
+			</div>
 		</div>
 		<script src="src/main.js"></script>
 	</body>

@@ -1,3 +1,9 @@
+import StatusApp from './StatusApp.svelte';
+
+const app = new StatusApp({
+	target: document.getElementById('benchmark-stats')
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 	// Benchmark script's text area elements
 	const benchmarkSetup = document.getElementById('benchmark-setup');
@@ -7,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	// When the #benchmark-run button is clicked start the evaluation
 	const actionButtonRun = document.getElementById('benchmark-run');
 	const runEvaluation = () => {
+		app.$set({ status: 'Starting benchmark execution...' });
+
 		// Read the values from the textarea elements as strings
 		// Cache the value as a function to be evaluated for the benchmark
 		let functionSetup = new Function(benchmarkSetup.value);
@@ -18,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		const endTimes = [];
 
 		const evaluateFunction = evaluatingFunction => {
-            // Run the initialization function
-            functionSetup();
+			// Run the initialization function
+			functionSetup();
 
-            // Run the iterations and track the time spent
+			// Run the iterations and track the time spent
 			startTimes.push(performance.now());
 			for (let i = 0; i < 1000; i++) {
 				evaluatingFunction();
@@ -29,23 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			endTimes.push(performance.now());
 		};
 
-        // Start the evaluations
+		app.$set({ status: 'Starting benchmark execution...Started' });
+		// Start the evaluations
 		evaluateFunction(function1);
+		app.$set({ completed: 1 });
 		evaluateFunction(function2);
+		app.$set({ completed: 2 });
 
+		app.$set({ status: 'Calculating execution times...' });
 		// Show the output on the benchmark-stats
-		const benchmarkStats = document.getElementById('benchmark-stats');
 		const executionTime1 = endTimes[0] - startTimes[0];
 		const executionTime2 = endTimes[1] - startTimes[1];
 
-		benchmarkStats.innerHTML = `
-        <h3>Run times</h3>
-        <b>Benchmark 1: </b> ${executionTime1}
-        <b>Benchmark 2: </b> ${executionTime2}
-        
-        <h3>Ratio of 1:2 :</h3>  ${executionTime1 / executionTime2}
-        `;
-    };
-    
+		// Update the times on the svelte StatusApp
+		app.$set({ time1: executionTime1 });
+		app.$set({ time2: executionTime2 });
+		app.$set({
+			status: 'Benchmark run complete. Click on `Run Benchmark` to run again'
+		});
+	};
+
 	actionButtonRun.addEventListener('click', runEvaluation);
 });
+
+export default app;

@@ -1,0 +1,251 @@
+$color-background: #27323a;
+$color-background-dark: #1f262c;
+$color-background-dark-console: #232b31;
+$color-background-scripts: #435055;
+$color-white: #ffffff;
+$color-text: #a9bfc8;
+$color-success: #76ff94;
+$color-success-secondary: #2aae7f;
+$color-danger: #ff3f6d;
+$color-danger-secondary: #bf3969;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: $color-background;
+  color: $color-text;
+}
+
+h1,
+h3 {
+  font-weight: normal;
+  color: $color-white;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center--vertical {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  padding: 1rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.header,
+.body,
+.console,
+.footer {
+  @include flex-center();
+}
+
+.header {
+  .content {
+    @include flex-center--vertical();
+  }
+
+  .logo {
+    box-sizing: content-box;
+    min-width: 48px;
+    width: 48px;
+    height: 56px;
+    margin-right: 1rem;
+  }
+
+  h1 {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+
+    span {
+      margin-left: 0.5rem;
+      font-size: 1rem;
+      color: $color-text;
+    }
+  }
+}
+
+.body {
+  label {
+    textarea {
+      background-color: $color-background-scripts;
+      border: none;
+      border-radius: 4px;
+      padding: 1rem;
+      color: $color-text;
+      width: 100%;
+      resize: none;
+    }
+  }
+
+  .columns {
+    display: flex;
+    // background-color: #f34;
+
+    & > div {
+      margin-right: 1rem;
+      flex: 1;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .benchmark-actions {
+    margin: 1rem 0;
+  }
+}
+
+.console {
+  padding-bottom: 116px;
+  background-color: $color-background-dark-console;
+
+  table {
+    margin-top: 1rem;
+    text-align: left;
+    border-spacing: 0;
+
+    th {
+      font-weight: normal;
+      font-size: 0.9em;
+    }
+
+    td {
+      color: $color-white;
+
+      &.faster {
+        color: $color-success;
+      }
+
+      &.slower {
+        color: $color-danger;
+      }
+    }
+    th,
+    td {
+      padding-right: 2rem;
+      &:nth-child(2) {
+        text-align: right;
+      }
+    }
+
+    td {
+      &:nth-child(2) {
+        position: relative;
+        &::before {
+          content: "";
+          position: relative;
+          display: inline-block;
+          top: -3px;
+          width: 100px;
+          height: 2px;
+          margin-right: 8px;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        &::after {
+          position: absolute;
+          top: 50%;
+          content: "";
+          display: block;
+          height: 2px;
+          width: var(--inner-width);
+          margin-left: calc(100px - var(--inner-width));
+          margin-right: 8px;
+          background-color: $color-success;
+        }
+
+        &.slower::after {
+          background-color: $color-danger;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: calc(100vh - 100px);
+  background-color: $color-background-dark;
+  font-size: 0.8rem;
+
+  .profile {
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+
+  a {
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  .content {
+    @include flex-center--vertical;
+  }
+}
+
+// Common components
+.btn {
+  background-color: $color-success-secondary;
+  color: $color-white;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-shadow: 0 4px 30px -15px $color-success;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 30px -10px $color-success;
+  }
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+
+  span {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: $color-text;
+  }
+}
+
+// Media queries
+@media screen and (max-width: 768px) {
+  h1,
+  h3 {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      margin-left: 0 !important;
+    }
+  }
+  .header .content {
+    align-items: flex-start !important;
+
+    .logo {
+      margin-top: 1.2rem;
+    }
+  }
+}
+
+// Utils
+.mt-0 {
+  margin-top: 0 !important;
+}
