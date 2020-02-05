@@ -1,8 +1,10 @@
 # js-perf
+
 A minimal online benchmark tool to compare JS scripts online  
 https://js-perf.firebaseapp.com/
 
 ### TODO
+
 - Integrate Github actions to push to firebase
 - Update meta information for SEO
 - Update UI to show the comparison
@@ -13,4 +15,6 @@ https://js-perf.firebaseapp.com/
 - Add support for Memory/CPU usage benchmarks
 - Collect benchmark-run count
 - Show the app version on the UI
-- Save last session on localStorage
+- Save the last session on localStorage
+- Enable sharing snippet sharing via deep links
+- Enable sharing snippet comparison via QR
